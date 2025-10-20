@@ -18,6 +18,9 @@ this is the link for the figma descriptions
   
 the image are displayed as grid.
 
-**loomLink**
+
+
+**deployLink**
+https://htuyishime208-lab.github.io/se_project_spots/
   
 
