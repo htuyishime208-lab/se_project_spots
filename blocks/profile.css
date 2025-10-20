@@ -15,6 +15,7 @@
 .profile__column{
     display: flex;
     flex-direction: column;
+    margin-top: 0 0 20px;
 }
 
 .profile__name{
@@ -31,7 +32,7 @@
 
 .profile__description{
     font-size: 16px;
-    margin: 0;
+    margin: 0 0 32px;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -42,6 +43,12 @@
 
 .profile__edit-btn{
 margin-top: auto;
+opacity: 1;
+transition: opasity 0.3s ease;
+}
+
+.profile__edit-btn:hover{
+opacity: 0.5;
 }
 
 .profile__add-btn{
@@ -52,7 +59,14 @@ margin-top: auto;
     width: 149px;
     height: 52px;
     border-radius: 8px;
+    opacity: 1;
+    transition: opasity 0.3s ease;
 }
+.profile__add-btn:hover{
+    opacity: 0.5;
+}
+
+
 
 @media screen and (max-width: 627px) {
     .profile{
