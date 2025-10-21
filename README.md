@@ -18,7 +18,10 @@ this is the link for the figma descriptions
   
 the image are displayed as grid.
 
+**Loom** 
+this is the video presantation Link
 
+https://www.loom.com/share/7397332fe5c9452f9cb62d9c43f04724?sid=3f8da5d0-69bd-4c98-8544-3912a9a0cd6d
 
 **deployLink**
 https://htuyishime208-lab.github.io/se_project_spots/
