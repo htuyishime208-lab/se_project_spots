@@ -34,15 +34,35 @@ link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/sp
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editProfileFormEl= editProfileModal.querySelector(".modal__form");
 
 
-const newPostBtn = document.querySelector(".profile__add-btn");
-const nwPostModal = document.querySelector("#new-post-modal");
-const newPostCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editProfileNameInput = editProfileModal.querySelector("#profile-name-input");
+const editProfileDescriptionInput = editProfileModal.querySelector("#profile-description-input");
+
+
+/*const newPostNameInput =newPostModal.querySelector("#profile-name-input");
+const newPostDescriptionInput= newPostModal.querySelector("#profile-description-input");*/
+
+
+
+
+const newPostBtn = document.querySelector(".profile__new-post-btn");
+const newPostModal = document.querySelector("#edit-profile-modall");
+const newPostCloseBtn= newPostModal.querySelector(".modal__close-btn");
+const newPostFormEl= newPostModal.querySelector(".modal__form");
+
+
+const profileNameEl = document.querySelector(".profile__name");
+const profileDescriptionEl = document.querySelector(".profile__description");
 
 
 editProfileBtn.addEventListener("click", function () {
     editProfileModal.classList.add("modal_is-opened");
+    editProfileNameInput.value=profileNameEl.textContent;
+    editProfileDescriptionInput.value=profileDescriptionEl.textContent;
+ 
+
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
@@ -50,13 +70,43 @@ editProfileCloseBtn.addEventListener("click", function () {
 });
 
 
-newPostBtn.addEventListener("click", function () {
-    editProfileModal.classList.add("modal_is-opened");
+newPostBtn.addEventListener("click", function(){
+  newPostModal.classList.add("modal_is-opened");
+
+      newPostNameInput.value=profileNameEl.textContent;
+   newPostDescriptionInput.value=profileDescriptionEl.textContent;
+
 });
 
+
 newPostCloseBtn.addEventListener("click", function () {
-    editProfileModal.classList.remove("modal_is-opened");
+    newPostModal.classList.remove("modal_is-opened");
 });
+
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault(); 
+ 
+profileNameEl.textContent= editProfileNameInput.value;
+profileDescriptionEl.textContent=editProfileDescriptionInput.value;
+
+
+ editProfileModal.classList.remove("modal_is-opened");
+}
+
+function handleAddCardSubmit(evt) {
+  evt.preventDefault(); 
+profileNameEl.textContent= editProfileNameInput.value;
+profileDescriptionEl.textContent=editProfileDescriptionInput.value; 
+
+}
+
+
+newPostFormEl.addEventListener('submit', handleAddCardSubmit);
+
+
+
+editProfileFormEl.addEventListener('submit', handleProfileFormSubmit);
 
 initialCards.forEach(function (card){
   console.log(card.name);

@@ -51,7 +51,7 @@ transition: opasity 0.3s ease;
 opacity: 0.5;
 }
 
-.profile__add-btn{
+.profile__new-post-btn{
     margin-left: auto;
     color: #fff;
     background-color: black;
@@ -62,7 +62,7 @@ opacity: 0.5;
     opacity: 1;
     transition: opasity 0.3s ease;
 }
-.profile__add-btn:hover{
+.profile__new-post-btn:hover{
     opacity: 0.5;
 }
 
@@ -101,7 +101,7 @@ opacity: 0.5;
         max-width: 288px;
     }
     
-    .profile__add-btn{
+    .profile__new-post-btn{
         margin: 0;
         width: 100%;
         max-width: 288px;
