@@ -41,9 +41,23 @@
     font-size: 20px;
 
 
- 
+}
 
+.modal__close-btn:hover{
+    opacity: 0.4;
+}
 
+.modal__close-btn_type-preview{
+    color: #fff;
+    background: none;
+    top: 0;
+    right: -52.5px;
+   
+    
+}
+
+.modal__close-btn_type-preview:hover{
+    opacity: 0.4;
 }
 
 .modal__title{
@@ -82,9 +96,40 @@
     color: #fff;
 }
 
+.modal__image-container{
+    position: relative;
+}
+
+.modal__image{
+    max-width: 80vw;
+    max-height: 80vh;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+}
+
+.modal__caption{
+    color: #fff;
+    background-color: black;
+    width: 150px;
+    height: 32px;
+    border-radius: 8px;
+    padding: 4px 8px;
+    text-align: left;
+
+}
+
 @media screen and (max-width: 627px){
     .modal__save-btn{
         max-width: none;
+    }
+    .modal__close-btn_type-preview{
+        top: -48px;
+        right: 0;
+    }
+    .modal__image{
+        max-width: unset;
     }
 
 }
