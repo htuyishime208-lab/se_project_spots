@@ -74,19 +74,32 @@
 .modal__label{
     display: flex;
     flex-direction: column;
-    margin: 0 0 32px;
+    margin-bottom: 32px;
     gap: 8px;
 }
 
 .modal__input{
+    width: 100%;
     border-radius: 8px;
     padding: 16px 12px;
     border-color: #212121;
+    margin: 8px 0 0;
 
 }
 
 .modal__input::placeholder{
     color: #2121214d;
+}
+.modal__error{
+    display: block;
+    color: red;
+    margin-top: 8px;
+    
+   
+}
+
+.modal__input_type_error{
+    border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__save-btn{
@@ -96,6 +109,14 @@
     background-color: black;
     color: #fff;
     cursor: pointer;
+}
+
+.modal__save-btn_inactive{
+    border: 1px solid; 
+    border-radius: 8px;
+    background-color: grey;
+    opacity: 50%;
+   
 }
 
 .modal__image-container{
@@ -122,6 +143,7 @@
     text-align: left;
 
 }
+
 
 @media screen and (max-width: 627px){
     .modal__save-btn{

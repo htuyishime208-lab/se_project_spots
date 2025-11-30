@@ -36,38 +36,37 @@ link : "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/s
 
 ];
 
+//profile declaration
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileFormEl= editProfileModal.querySelector(".modal__form");
 
-
 const editProfileNameInput = editProfileModal.querySelector("#profile-name-input");
 const editProfileDescriptionInput = editProfileModal.querySelector("#profile-description-input");
 
+const profileNameEl = document.querySelector(".profile__name");
+const profileDescriptionEl = document.querySelector(".profile__description");
 
 
 
-
+//new post declaration
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#edit-profile-modall");
 const newPostCloseBtn= newPostModal.querySelector(".modal__close-btn");
 const newPostFormEl= newPostModal.querySelector(".modal__form");
-
+const NewSaveButton= newPostModal.querySelector(".modal__save-btn");
 const newPostNameInput =newPostModal.querySelector("#link-name-input");
 const newPostDescriptionInput= newPostModal.querySelector("#caption-description-input");
 
 
 
 
-const profileNameEl = document.querySelector(".profile__name");
-const profileDescriptionEl = document.querySelector(".profile__description");
-
+// preview declaration
 const previewModal = document.querySelector("#preview-modall");
 const previewCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewCaption = previewModal.querySelector(".modal__caption");
 const previewImage = previewModal.querySelector(".modal__image");
-
 
 
 const cardTemplate= document.querySelector("#card-template").content.querySelector(".card");
@@ -92,23 +91,25 @@ cardDeleteBtn.closest(".card").remove();
 
 });
 
-cardImageEl.addEventListener("click", () =>{
 
+//image preview code 
+cardImageEl.addEventListener("click", () =>{
   previewImage.src=data.link;
   previewImage.alt=data.name;
   previewCaption.textContent=data.name;
   openModal(previewModal);
+});
+  return(cardElement);
 
+}
+previewCloseBtn.addEventListener("click", function () {
+    closeModal(previewModal);
 });
 
 
 
-  return(cardElement);
 
-}
-
-
-
+//function to open modal
 function openModal(modal){
   modal.classList.add("modal_is-opened");
 }
@@ -118,50 +119,33 @@ function closeModal(modal){
 }
 
 
-
+//edit profile code 
 editProfileBtn.addEventListener("click", function () {
     openModal(editProfileModal);
     editProfileNameInput.value=profileNameEl.textContent;
     editProfileDescriptionInput.value=profileDescriptionEl.textContent;
- 
-
-});
-
-previewCloseBtn.addEventListener("click", function () {
-    closeModal(previewModal);
-});
-
-editProfileCloseBtn.addEventListener("click", function () {
-    closeModal(editProfileModal);
-});
-
-
-newPostBtn.addEventListener("click", function(){
-  openModal(newPostModal);
-
- 
-});
-
-
-newPostCloseBtn.addEventListener("click", function () {
-    closeModal(newPostModal);
-
-});
-
-
+ });
+editProfileFormEl.addEventListener('submit', handleProfileFormSubmit);
 function handleProfileFormSubmit(evt) {
   evt.preventDefault(); 
  
 profileNameEl.textContent= editProfileNameInput.value;
 profileDescriptionEl.textContent=editProfileDescriptionInput.value;
 
-
  editProfileModal.classList.remove("modal_is-opened");
 }
+editProfileCloseBtn.addEventListener("click", function () {
+    closeModal(editProfileModal);
+});
 
+
+//new post code
+newPostBtn.addEventListener("click", function(){
+  openModal(newPostModal);
+ });
+newPostFormEl.addEventListener('submit', handleAddCardSubmit);
 function handleAddCardSubmit(evt) {
   evt.preventDefault(); 
-
 const cardElement= getCardElement(
     {
       name: newPostNameInput.value,
@@ -169,20 +153,25 @@ const cardElement= getCardElement(
     }
   );
   cardsList.prepend(cardElement);
-
+  evt.target.reset();
+  disableButton(NewSaveButton, Settings);
   newPostModal.classList.remove("modal_is-opened");
+}
+newPostCloseBtn.addEventListener("click", function () {
+    closeModal(newPostModal);
+});
 
 
+// other functions code
+
+function handleDeleteCard(evt){
+  evt.target.closest(".card").remove();
 }
 
+function handleLike(evt){
+  evt.target.classList.toggle("card__like-btn_active");
+}
 
-newPostFormEl.addEventListener('submit', handleAddCardSubmit)
-{
- 
-  
-};
-
-editProfileFormEl.addEventListener('submit', handleProfileFormSubmit);
 
 initialCards.forEach(function (card){
  
