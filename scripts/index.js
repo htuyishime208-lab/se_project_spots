@@ -55,7 +55,7 @@ const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#edit-profile-modall");
 const newPostCloseBtn= newPostModal.querySelector(".modal__close-btn");
 const newPostFormEl= newPostModal.querySelector(".modal__form");
-const NewSaveButton= newPostModal.querySelector(".modal__save-btn");
+const newSaveButton= newPostModal.querySelector(".modal__save-btn");
 const newPostNameInput =newPostModal.querySelector("#link-name-input");
 const newPostDescriptionInput= newPostModal.querySelector("#caption-description-input");
 
@@ -154,7 +154,7 @@ const cardElement= getCardElement(
   );
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disableButton(NewSaveButton, Settings);
+  disableButton(newSaveButton, Settings);
   newPostModal.classList.remove("modal_is-opened");
 }
 newPostCloseBtn.addEventListener("click", function () {
@@ -162,15 +162,6 @@ newPostCloseBtn.addEventListener("click", function () {
 });
 
 
-// other functions code
-
-function handleDeleteCard(evt){
-  evt.target.closest(".card").remove();
-}
-
-function handleLike(evt){
-  evt.target.classList.toggle("card__like-btn_active");
-}
 
 
 initialCards.forEach(function (card){

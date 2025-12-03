@@ -8,18 +8,21 @@ const Settings = {
 }
 
 
-const showInputError = (formElement, inputElement, errorMessage) => {
+
+const showInputError = (formElement, inputElement, errorMessage, Config) => {
   const errorMessageEl = formElement.querySelector(`#${inputElement.id}-error`);
    errorMessageEl.textContent = errorMessage;
-    inputElement.classList.add("modal__input_type_error");
+   /*inputElement.classList.add(Config.errorClass);
+    inputElement.classList.add(Config.errorClass);*/
    
  
 };
 
-const hideInputError = (formElement, inputElement, errorMessage) => {
+const hideInputError = (formElement, inputElement, errorMessage, Config) => {
   const errorMessageEl = formElement.querySelector(`#${inputElement.id}-error`);
    errorMessageEl.textContent = "";
-   inputElement.classList.remove("modal__input_type_error");
+  /*inputElement.classList.remove(Config.errorClass);
+    inputElement.classList.remove(Config.errorClass);*/
     
  
 };
@@ -40,22 +43,24 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
-  console.log(hasInvalidInput(inputList));
-  if (hasInvalidInput(inputList)) {
-    disableButton(buttonElement);
-    buttonElement.classList.add("modal__save-btn_inactive");
-  } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove("modal__save-btn_inactive");
-    
-  }
-};
-
 const disableButton = (buttonElement, Config) => {
    
 buttonElement.disabled = true;
 };
+
+
+const toggleButtonState = (inputList, buttonElement,Config) => {
+  console.log(hasInvalidInput(inputList));
+  if (hasInvalidInput(inputList)) {
+    disableButton(buttonElement, Config);
+    buttonElement.classList.add(Config.inactiveButtonClass);
+  } else {
+    buttonElement.disabled = false;
+    buttonElement.classList.remove(Config.inactiveButtonClass);
+    
+  }
+};
+
 
 const setEventListeners = (formElement, Config) => {
   const inputList = Array.from(formElement.querySelectorAll(Config.inputSelector));

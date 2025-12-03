@@ -21,6 +21,8 @@ the image are displayed as grid.
 **Loom** 
 this is the video presantation Link
 
+https://www.loom.com/share/9e661c3498de48958cbaa70d98502917   (validation Videon presentation)
+
 https://www.loom.com/share/7397332fe5c9452f9cb62d9c43f04724?sid=3f8da5d0-69bd-4c98-8544-3912a9a0cd6d
 
 **deployLink**
